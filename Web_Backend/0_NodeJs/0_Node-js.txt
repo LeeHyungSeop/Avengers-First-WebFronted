@@ -1,0 +1,44 @@
+/*
+
+    Web Browser --> HTML, CSS, JavaScript == Front-end
+
+    Web Server --> 1. ** Java - Spring (framework) **               == Back-end
+                   2. C# --> ASP.NET (window 기반으로 만들때)
+
+
+    Chrome browser에서 JS코드를 돌릴 수 있는 V8 engine이 있다. 
+    V8 engine은 JS코드를 machine code(binary code)로 바꿔준다.
+    V8 engine을 웹브라우저에서 꺼내어 하나의 프로그램처럼 만들었다.
+    그 프로그램이 Node.exe / Node.js 이다.
+
+    Node.js는 웹브라우저 환경이 아닌 곳에서 JS로 짠 프로그램을 돌릴 수 있는 runtime environment이다.
+
+ */
+
+/*
+
+    예전에는 Webserver에서 Java로만 프로그램을 짰었는데,
+
+    요즘엔 Node.exe 이라는 runtime 환경에서 JS로 짠 프로그램을 돌릴 수 있게 되었다.
+    그래서 요즘엔 web server를 JS로 짤 수 있게 되었다.
+
+    Front-end 개발자들이 JS로 서버를 만들 수 있게 되었으니까
+    Back-end까지 짤 수 있게 되었다.
+
+    Front-end + Back-end => Full Stack Engineer
+
+    (예전)
+    A (Front)     |      B (Backend)    
+    service 1     |      Server 1
+    service 2     |      Server 2
+
+
+    (요즘) --> Micro Service
+    A (Front)            B (Backend)    
+    --------------------------------
+    service 1            Server 1   
+    --------------------------------
+    service 2            Server 2   
+    --------------------------------
+
+*/

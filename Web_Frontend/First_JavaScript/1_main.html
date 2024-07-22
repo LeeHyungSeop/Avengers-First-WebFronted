@@ -1,0 +1,63 @@
+<html>
+
+    <head>
+    </head>
+
+    <body>
+        <h1>여기입니다.</h1>
+
+        <script> 
+            ////////////////////////////////////////////////////////////////////////////
+            // 1. 출력 ---> chrome -> 개발자도구 -> console
+            
+            //첫번쨰 큰따옴표 // console.log("이것은 자바스크립트입니다.");
+
+            //두번째 작은따옴표// console.log('이것은 자바스크립트입니다.');
+            //두번째 작은따옴표// 이렇게 하면 error. ()
+            // console.log('이것은 자바스크립트입니다. 
+            
+            // by backtick');
+
+            //세번째 backtick // backtick이 다른 점 : 이렇게 줄바꿈한 그대로로 나타난다
+            //console.log(`이것은 자바스크립트입니다. 
+            
+            // by backtick`);
+
+           
+            ////////////////////////////////////////////////////////////////////////////
+            // 2. typeof ---> 자료형 이름
+            // console.log('hello의 자료형은 '+typeof("hello"));  // string
+            // console.log('4의 자료형은 '+typeof(4));  // number
+            // console.log('4.3의 자료형은 '+typeof(4.3));  // number
+
+            // console.log('string concat의 문자열 더하기 숫자 결과는 ' +('123'+5));
+            // 이 결과는 1235로 나온다. 하지만 내가 원했던 결과는 128이라면
+            // 문자열을 숫자로 바꿔주는 함수 : parseInt(문자열) -- > 정수
+            // parseInt('123') // '123' --> 123
+            // console.log('parseInt의 결과는 : ' +(parseInt('123')+5));
+
+            ///////////////////////////////////////////////////////////////////////////
+            // 3. 변수 (const, let)
+            // const : 한 번 대입하면 변경 불가
+            // const 변수 error
+            // const a=1;
+            // a=2;
+
+            // let : 일반 변수
+            // let b=1;
+            // console.log('b의 초기값:' +b);
+            // b=2;
+            // console.log('b의 변경값 : ' +b);
+
+            // let a=10;
+            // let b=20;
+            // let c=a+b;
+            // const d=a*10;
+            // // 제곱
+            // const e=2**3; // 2의 3승
+
+        </script>
+
+    </body>
+
+</html>

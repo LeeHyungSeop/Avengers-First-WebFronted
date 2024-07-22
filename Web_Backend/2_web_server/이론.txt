@@ -1,0 +1,50 @@
+서버를 만들기 위한
+2_web_server 디렉터리를 만든다
+
+--->
+
+터미널 창에서
+npm init -y    (npm : node package manager / 해당 디렉터리를 새로운 노드 프로젝트의 디렉터리로 한다)
+               (-y init할 때 물어보는게 많아서 모두 yes라고 대답한다.)
+
+-->
+
+** package.json ** 파일이 생성되었다. (package.json : 해당 프로젝트에 대한 모든 정보를 갖고 있는 파일)
+web server를 만들때 express라는 pkg를 사용하기 때문에
+
+--->
+
+터미널 창에서
+npm install express --save  (express라는 module을 설치한다. / --save : package.json 파일에 이 정보를 저장하라)
+
+--> 
+
+node_modules라는 폴더와
+package-lock.json 파일이 만들어졌다.
+
+--->
+
+node_modules 디렉터리에는 
+package.json에 있는 모듈 뿐만 아니라, package.json에 있는 모듈이 의존하고 있는 모듈 전부를 포함하고 있다
+
+package.json 의 "dependencies"에 express module을 사용한다는 것이 작성되어진다. 
+또한 
+package-lock.json 파일이 생긴다.
+package-lock.josn 파일에는 express에 대한 정보도 있지만 express가 필요로 하는 다른 pkg들에 대한 정보가 다 들어있다.
+
+package-lock.json 파일이 왜 생길까?-------------------
+만약 package.json 파일만 갖고 있는 상태에서
+다른 컴퓨터로 옮겨서 웹서버를 개발한다고 했을 때,
+package.json 안에 express가 있기 떄문에 express가 필요로 하는 module들을 다운받아올 것이다.
+그런데 컴퓨터를 옮기기 전 express가 의존하고 있는 module들의 버전정보가
+컴퓨터를 옮긴 후 express가 의존하고 있는 module들의 버전정보가 달라질 수 있기 때문에
+package-lock.json에 다른 module들의 버전정보까지 함꼐 저장할 수 있도록 자동적으로 생긴다.
+
+(정리하면)
+따라서 처음에 package.json 파일이 있고,
+그곳에 express가 필요하다고 되어있는데,
+express가 다운로드 되면서 딸린 모듈들이 많은데,
+package.json 파일에는 express에 딸린 모듈들에 대한 정보가 없기 때문에
+package-lock.json 파일이 자동적으로 만들어져서 
+express가 다운될 때 연결되어 있는 모듈들과 그 당시의 버전정보들이 들어가 있다
+------------------------------------------------------------

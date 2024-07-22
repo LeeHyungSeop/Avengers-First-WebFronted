@@ -1,0 +1,82 @@
+<!-- Copy (복사) VS Reference (참조) -->
+
+<html>
+
+    <head>
+
+    </head>
+
+    <body>
+        
+        <script>
+
+            // // COPY ///////////////////////////////////////////////////////////////////////////////////
+            // // primitive data type을 COPY할 때
+
+            // let a= 1; // 숫자, 문자열과 같은 data type을 -> primitive(기초적인) data type라고 한다.
+            // let b= a; // primitive data type을 대입할 때는 copy(복사)가 된다.
+            
+            // console.log('before a is',a);
+
+            // b=10; 
+            
+            // console.log(`after a is ${a}`);  // back-tick 하고 ${변수명} 쓰면 바로 변수값이 출력됨
+            // console.log(`b is ${b}`);
+
+            // // Reference /////////////////////////////////////////////////////////////////////////////////
+            // // object를 COPY할 때
+
+            // // object (객체) : key(속성) 와 value(값)의 쌍  -> primitive data type이 아니다!
+            // const a = {'name':'alice','age':20} 
+            // const b = a;  // b에 primitive data type이 아닌 object를 대입. (copy가 아닌 reference로 참조하게 됨)
+
+            // console.log('before a is',a);
+
+            // // b.name 또는
+            // b['name'] = 'tom';  // primitive data type이 아니기 때문에
+            //                     // b = a를 할 때, copy(복사)가 아니라 reference(참조)를 하게 된다.
+            //                     // 그래서 b의 name속성의 값을 바꾸니까 a의 name속성의 값도 똑같이 바뀌게 된다.
+
+            // console.log('after a is',a); // a는 const형인데 값이 바뀌었다.. why???
+            //                              /*
+            //                               b는 a가 가리키는 공간을 가리키게 된다.
+            //                               b도 const형이니까 a가 가리키는 공간만 가리킬 수 있다.
+            //                               따라서 a에 있는 key(속성)들의 value(값)을 바꿀 수 있게 된 것이다.
+
+            //                               여기서 만약, b가 c가 가리키는 공간을 가리키도록 
+            //                               b=c; 연산을 하면 에러가 난다.
+            //                               b는 a가 가리키는 공간을 가리키도록 const형 변수로 선언되었기 떄문이다.
+
+            //                               b를 let형 변수로 바꾸면 이를 해결할 수 있다!
+            //                              */
+            // const c = {'name':'john','age':21};
+            // b.name = 'tom';
+            // b=c;
+            // console.log('b is',b);  // const b라면 error 발생, let b 라면 문제 없음
+
+            // // Reference 2 /////////////////////////////////////////////////////////////////////////////////
+            // // Array를 COPY할 때
+
+            // const a = [1,2,3]; // array도 primitive data type이 아니기 때문에 reference에 의해 copy된다
+            // const b = a;  
+            // console.log('before a is',a);
+
+            // b[1]=200;
+
+            // console.log(a); 
+            // // 배열 출력 복습차원
+            // a.forEach((v,idx)=>{
+            //     console.log(`${idx} : ${v}`);
+            // });
+
+            // /*
+            //     a의 index 1이 200으로 바뀐 것으로 보아,
+            //     그렇기 때문에 b = a 연산이 copy가 아니라 reference이었음을 알 수 있고,
+            //     Array는 primitive data tpye이 아니라는 것을 알 수 있다.
+            // */
+
+        </script>
+
+    </body>
+
+</html>

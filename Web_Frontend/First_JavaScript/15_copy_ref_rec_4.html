@@ -1,0 +1,57 @@
+<!-- Array Deep Copy -->
+
+<html>
+
+    <head>
+    </head>
+
+    <body>
+        
+        <script>
+
+            // Array Deep Copy ///////////////////////////////////////////////////////////////
+            
+            const a = [ 'alice', 20, {city : 'incheon', street:10} ]; // 객체가 들어있는 배열
+
+            console.log('before :-----------------');
+            console.log(a[0],a[1],a[2].city,a[2].street);
+
+            const b=[...a]; // Shallow Copy
+
+            b[0]='John';
+            b[1]=1000;
+            b[2].city='Seoul';
+            b[2].street=555;
+
+            // Shallow Copy를 했기 때문에 a에 있는 alice, 20은 copy가 됐지만,
+            // Array a 안에 Object에 있는 city속성값, street속성값은 바뀐 것을 알 수 있다.
+            console.log('array shallow copy ---------');
+            console.log(a[0],a[1],a[2].city,a[2].street);
+            console.log(b[0],b[1],b[2].city,b[2].street);
+
+            const c=JSON.parse(JSON.stringify(a)); // Deep Copy
+
+            c[0]='Lee';
+            c[1]=2000;
+            c[2].city='Paju';
+            c[2].street=999;
+
+            // Deep Copy를 했기 때문에 a에 있는 모든 값들은 바뀌지 않았고 (== ref되지 않았고),
+            // c의 값들만 바뀐 것을 알 수 있다.
+            console.log('array deep copy---------');
+            console.log(a[0],a[1],a[2].city,a[2].street);
+            console.log(c[0],c[1],c[2].city,c[2].street);
+
+            /*
+                JS 뿐만 아니라 현대 모든 언어에서 마찬가지로
+                assign 할 때
+                copy? reference? shallow copy? deep copy?의 개념이 있으므로
+                알아둬야 한다.
+            */
+
+            
+        </script>
+
+    </body>
+
+</html>

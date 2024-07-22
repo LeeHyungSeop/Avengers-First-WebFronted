@@ -1,0 +1,77 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        
+        <h1 id="grade">
+
+        </h1>
+
+        <script>
+
+            // function parameter --> 함수 선언할 때
+            // function argument --> 함수 호출할 때 
+
+            ////(1)//////////////////////////////////////////////////////////
+            // function sayHello(){
+            //     console.log('안녕하세요');
+            //     // return '바이!';
+            //     // return ['바이!',10,false];
+            // }
+            // sayHello();
+
+            // function sayHelloWithParameter(name){
+            //     console.log(name+'씨, 안녕하세요');
+            // }
+            // sayHelloWithParameter('이형섭');
+
+            //////////////////////////////////////////////////////////////
+
+            //(2) : arrow function
+            // k라는 변수에 () => {console.llg('안녕하세요2');} 라는 함수가 있다}
+            const k = () => {console.log('안녕하세요2');}
+            k();
+
+            const k2 = (name) => {console.log(name+'씨, 안녕하세요2');}
+            k2('이형섭');
+            
+            //////////////////////////////////////////////////////////////
+            // // (3) : 
+            // const v = function() {console.log('안녕하세요3');}
+            // const v2 = function(name) {console.log(name+'씨, 안녕하세요3');}
+            // v();
+            // v2('이형섭');
+            
+            ///////////////////////  return 값 ///////////////////////////
+            // javascript에서 반환값은 1개이다.
+            // 여러개 반환하고 싶으면 array 이용한다.
+
+            // console.log('sayHello의 반환값 : '+sayHello());  // 반환값이 없으면 undefined, == void
+            
+
+            
+            //////////////  parameter VS argument ////////////////
+
+            function sayHelloWithParameter(name,age){
+                console.log(age+'살, ' +name+'씨, 안녕하세요');
+            }
+            sayHelloWithParameter('찰스',20);
+
+            sayHelloWithParameter('찰스',20,false); 
+            // 이렇게 해도 false는 짤리고 찰스,20만 가져간다
+
+            sayHelloWithParameter('찰스'); 
+            // 이렇게 해도 정상동작한다. name : 찰스, age : undefined
+
+            // 배열로 넘기기. C/C++과 달리 typechecking이 엄하지 않다. --> Web Browser
+            // C/C++ --> mission critical --> ex. 항공기, 미사일, 자동차 ..
+            function sayHelloWithParameter2(values){
+                console.log(values[1]+'살, ' +values[0]+'씨, 안녕하세요');
+            }
+            sayHelloWithParameter2(['찰스',20]); 
+
+        </script>
+
+    </body>
+</html>

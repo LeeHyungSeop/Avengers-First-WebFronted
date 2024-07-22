@@ -1,0 +1,89 @@
+<html>
+
+    <head>
+
+    </head>
+
+    <body>
+        <h1 id='grade'></h1>
+        
+        <script>
+            // literal --> 값 자체
+            // 1, 2, 3   Integer literal
+            // 3.14      Floating point number literal
+            // 'hello'   String literal
+            
+            // object literal 
+            // : 배열 ['찰스',20,true]에 index 번호를 지정할 수 있다  
+            //        0      1    2 가 아니라 --> name, age, tf 이런 식으로..   
+
+            // const person =['찰스',20];  --> array
+
+            const person ={ name:'찰스', age:20  }; // object literal
+            // person의 name이라는 속성의 값이 찰스.
+            // person의 age라는 속성의 값이 20.
+
+            console.log('person name : '+person.name);
+            console.log('person name : '+person['name']);
+
+            person.age=35;
+            console.log('person age : '+person.age);
+
+            console.log('keys : '+Object.keys(person)); 
+            // person이라는 object literal 안에 담긴 속성의 이름들을 출력
+            console.log('keys value : '+Object.values(person));
+            // person이라는 object literal 안에 담긴 값들을 출력
+
+            // object literal의 key들을 뽑아보기. foreach 사용
+            ///////////////////////////////////////////////////////////////////
+            const showOL=(ol)=>{
+                const keys=Object.keys(ol);
+                keys.forEach((elem,idx)=>{
+                    console.log(elem+' ---> '+ol[elem]);
+                });
+            };         
+            showOL(person);
+            // for문 사용 (C언어식)
+            const showOL2=(ol)=>{
+                const keys=Object.keys(ol);
+                for(let i=0;i<keys.length;i++){
+                    console.log(keys[i]+' ===> '+ol[keys[i]])
+                }
+            };    
+            showOL2(person);
+
+            
+            ///////////////////////////////////////////////////////////////////
+            // object literal에 값 뿐만 아니라 method(=function)도 추가.
+            person.sayHello = () => {console.log('Hello!!! ');};
+            person.sayHello2= (v) => {console.log(v+'! Hi!');};
+
+            person.sayHello();
+            person.sayHello2('이형섭');
+
+            person.areYouOlderThan = (_age) => {
+                if(person.age>_age) {
+                    return true;
+                }
+                else
+                    return false;
+            };
+            const check_age=40;
+            console.log('Are you older than '+check_age+'? '+person.areYouOlderThan(check_age));
+
+            
+            ///////////////////////////////////////////////////////////////////
+            // object literal 안에 object literal 추가하기
+            const a={
+                name:'찰스',
+                detail: {
+                    name:'톰',
+                    age:10
+                }
+            }
+            console.log('--->'+a.detail.name)
+
+        </script>
+
+    </body>
+</html>

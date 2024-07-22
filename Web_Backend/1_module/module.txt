@@ -1,0 +1,11 @@
+logger.js 파일에 직접 module을 만들어 봤는데,
+
+실제로는 직접 module을 만드는 경우는 거의 없고
+이미 만들어진 module을 갖다 쓰는 경우가 훨씬 많다.
+
+* os module
+* fs (file system) module
+* http module
+* express module
+... 
+etc...

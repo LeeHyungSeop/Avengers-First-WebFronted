@@ -1,0 +1,91 @@
+<!-- ***** 13_event3.html과 함께 볼 것 ***** -->
+<html>
+
+    <head>
+
+
+    </head>
+
+
+    <body>
+        
+        <div>
+            <div>
+                <input type="checkbox">
+                <label for="">운동</label>
+            </div>
+            <div>
+                <input type="checkbox">
+                <label for="">쇼핑</label>
+            </div>
+        </div>
+
+        <script>
+
+            // input에 대한 event listener 설정
+            // inputs는 2개의 input이 들어있는 배열이 된다
+            const inputs = document.querySelectorAll('input'); 
+
+            inputs.forEach( (_input,_idx)=> {
+                _input.addEventListener('click',() => {
+                    console.log(_idx+' bubble phase : input click event 발생');
+                }); // bubble phase때 수행되는 listener
+                // capture phase에서 수행되는 것인가? null -> false ==> bubble phase
+
+                _input.addEventListener('click',() => {
+                    console.log(_idx+' capture pahse : input click event 발생');
+                },true); // capture phase에 수행되는 listener
+                // capture phase에서 수행되는 것인가? true ==> capture phase
+
+            });
+
+            inputs.forEach( (_input,_idx)=> {
+                _input.addEventListener('click',() => {
+                    console.log(_idx+' 두번째 bubble phase : input click event 발생');
+                }); // false가 생략되어 있기 때문에, bubble phase 수행되는 listener
+            });
+
+            // div에 대한 event listener 설정
+            // 큰 div 1개 (0번째 idx), 속해있는 div 2개(1,2번째 idx)
+            const divs = document.querySelectorAll('div');
+            divs.forEach((_div,_idx)=>{
+                _div.addEventListener('click', ()=>{
+                    console.log(_idx +' bubble phase : div에 대한 event 발생');
+                });
+                _div.addEventListener('click', ()=>{
+                    console.log(_idx +' capture phase : div에 대한 event 발생');
+                },true);
+            });
+
+
+            /* '운동' click!
+                0 capture phase : div에 대한 event 발생
+                1 capture phase : div에 대한 event 발생
+                0 capture pahse : input click event 발생
+                0 bubble phase : input click event 발생
+                0 두번째 bubble phase : input click event 발생
+                1 bubble phase : div에 대한 event 발생
+                0 bubble phase : div에 대한 event 발생
+
+                (capture phase) div 0 -> div 1 -> input 0
+                (bubble phase)  input 0 -> div 1 -> div 0
+            */
+
+            /* '쇼핑' click!
+                0 capture phase : div에 대한 event 발생
+                2 capture phase : div에 대한 event 발생
+                1 capture pahse : input click event 발생
+                1 bubble phase : input click event 발생
+                1 두번째 bubble phase : input click event 발생
+                2 bubble phase : div에 대한 event 발생
+                0 bubble phase : div에 대한 event 발생
+
+                (capture phase) div 0 -> div 2 -> input 1
+                (bubble phase)  input 1 -> div 2 -> div 0
+            */
+
+        </script>
+
+    </body>
+
+</html>

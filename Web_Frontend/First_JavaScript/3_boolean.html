@@ -1,0 +1,158 @@
+<html>
+
+    <head>
+
+
+    </head>
+
+    <body>
+        <h1 id='grade'></h1>
+
+        <script>
+            //////////////////////////////////////////////////////////////////////////////////
+            // // Boolean형
+            // let k=true;
+            // console.log('k : ' +k)
+            // console.log('k type : '+typeof(k));
+            // k=false;
+            // console.log('k : '+k);
+            // console.log('k type : '+typeof(k));
+
+            //////////////////////////////////////////////////////////////////////////////////
+            // // 비교연산자
+            // // < , > , <= , >=
+            // // == , ===
+            // // != , !==
+            // console.log('1==1: ' +(1==1));   // true.
+            // console.log('\'1\'==1 : ' +('1'==1)); // 원래는 false인데,
+            //                                    // javaScript에서 자동적으로 형변환을 하여 서로 같은 자료형으로 만든다
+            // console.log('\'1\' === 1 : '  +'1'===1); // === 연산자는 자료형까지 비교. 그래서 false.
+
+            // console.log('1!=1: ' +(1!=1));   // flase
+            // console.log('\'1\'!=1 : ' +('1'!=1)); // false
+            // console.log('\'1\' !== 1 : '  +'1'!==1); // true
+
+            
+            //////////////////////////////////////////////////////////////////////////////////
+            // // 사전순 문자열 비교
+            // console.log('ack < abk : '+('ack'<'abk'));   // false
+            // console.log('apple < banana : '+('apple'<'banana'));   //true
+
+            //////////////////////////////////////////////////////////////////////////////////
+            // // undefined, null
+            // let k;
+            // console.log('k is : ' +k); // undefined, 초기화가 되지 않았음
+
+            // let x=null;  // 초기화했지만 값이 없음
+            // console.log('x is : ',+x);
+
+            // //////////////////////////////////////////////////////////////////////////////////
+            // // if문
+            // const score=parseInt(prompt());
+
+            // if(score >= 90){
+            //     document.querySelector('h1#grade').textContent='A';
+            // }
+            // else if(score>=80){
+            //     document.querySelector('h1#grade').textContent='B';
+            // }
+            // else
+            //     document.querySelector('h1#grade').textContent='C';
+            // //////////////////////////////////////////////////////////////////////////////////
+            // // switch문
+            // switch(score) {
+            //     case 100:
+            //         document.querySelector('h1#grade').textContent='완벽한 실력';
+            //         break;
+            //     case 90:
+            //         document.querySelector('h1#grade').textContent='충분한 실력';
+            //         break;
+            //     default:
+            //         document.querySelector('h1#grade').textContent='나머지 공부 필요';
+            // }
+            // //////////////////////////////////////////////////////////////////////////////////
+            // // 삼항연산자
+            // // 50 --> pass, otherwise --> fail
+            // const msg= (score>=50) ? 'pass' : 'fail' ;
+            // document.querySelector('h1#grade').textContent=msg;
+            // //////////////////////////////////////////////////////////////////////////////////
+
+            // // for 반복문
+            // const num=parseInt(prompt());
+            // let msg='';
+            // for(let i=0 ; i<num ; i++){
+            //     msg+='hello';
+            // }
+            // document.querySelector(`h1#grade`).textContent=msg;
+            
+            // // while 반복문
+            // const num=parseInt(prompt());
+            // let msg='';
+            // let i=0;
+            // while(i<num){
+            //     msg+='hello ';
+            //     i+=1;
+            // }
+            // document.querySelector('h1#grade').textContent=msg;
+
+            // while(true){
+            //     msg+='hello ';
+            //     i+=1;
+            //     if(i>=num){
+            //         break; // continue;
+            //     }
+            // }
+            // //////////////////////////////////////////////////////////////////////////////////
+                    
+            // // array  (배열 element에 들어갈 수 있는 자료형이 다양하다)
+            // const myArray=[1,2,'apple','banana',3.14,true];
+            //     // 길이
+            // console.log('myArray length : '+myArray.length);
+            //     // 내용
+            // console.log(myArray);
+            
+
+            // // array in array
+            // const myArray2=[1,[3.14,true,'banana',10],'apple'];
+            //     // 길이
+            // console.log('myArray2 length : '+myArray2.length);
+            //     // 내용
+            // console.log(myArray2);
+
+            // // array 출력
+            // const myArray=[1,2,'apple','banana',3.14,true];
+            // for(let i=0;i<myArray.length;i++) {
+            //     console.log(myArray[i]);
+            // }
+
+            // // array in array 출력
+            // const myArray2=[1,[3.14,true,'banana',10],'apple'];
+            // for(let i=0;i<myArray2.length;i++) {
+            //     console.log(myArray2[i]);
+            // }
+            
+            // // array in array만 출력
+            // for(let i=0;i<myArray2[1].length;i++) {
+            //     console.log(myArray2[1][i]);-
+            // }
+
+            // // 지우기. pop()은 뒤에서, shift()은 앞에서 
+            // const myArray=[1,2,'apple','banana',3.14,true];
+            // console.log('before : ' +myArray);
+            // let value = myArray.pop(); // pop하면 맨 뒤에 있는 true라는 값만 제거됨
+            // console.log('pop value : '+value);
+            // value=myArray.shift(); // shift하면 맨 앞에 있는 1만 제거됨
+            // console.log('shift value : '+value)
+            // console.log('after : '+myArray);
+
+            // // 추가하기, push()은 뒤에서, unshift 앞에
+            // const myArray=[1,2,'apple','banana',3.14,true];
+            // console.log('before : ' +myArray); 
+            // myArray.push('orange'); // push하면 맨 뒤에 값 추가
+            // myArray.unshift(false); // unshift하면 맨 앞에 값 추가
+            // console.log('after : '+myArray);
+            
+            // //////////////////////////////////////////////////////////////////////////////////
+        </script>
+    </body>
+</html>

@@ -1,0 +1,30 @@
+<html>
+
+    <head>
+
+    </head>
+
+    <body>
+        
+        <div>
+            <h1 id ='count_down'></h1>
+        </div>
+
+        <script>
+
+            let timer = 10;
+            const _id = setInterval(()=>{
+                const cp_h1 = document.querySelector('#count_down');
+                cp_h1.textContent = timer;
+                timer--;
+                if(timer<0){
+                    clearInterval(_id);
+                    cp_h1.textContent= 'Done';
+                }
+            },1000);
+
+        </script>
+
+    </body>
+
+</html>

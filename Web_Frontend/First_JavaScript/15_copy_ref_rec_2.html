@@ -1,0 +1,85 @@
+<!-- Shallow Copy -->
+
+<html>
+
+    <head>
+
+    </head>
+
+    <body>
+        
+        <script>
+
+            // // Object COPY ///////////////////////////////////////////////////////////////
+            
+            // const a = {
+            //     name : 'john',
+            //     age : '20'
+            // };
+
+            // console.log('a : ',a.name,a['age']);
+
+            // const b = Object.assign({},a); // {}에다가 a에 있는 모든 속성들을 붙여넣어서 새로 할당한다(copy)
+            // b.name = 'alice'; // 이렇게 해도 a의 name이 alice로 안바뀐다. b는 a를 copy했기 때문
+            // console.log('after---------');
+            // console.log('a : ',a.name,a['age']);
+            // console.log('b : ',b.name,b['age']); 
+
+            // // Object COPY 2 ///////////////////////////////////////////////////////////////
+            
+            // const a = {
+            //     name : 'john',
+            //     age : '20',
+            //     address : {
+            //         city : 'incheon',
+            //         street : 10
+            //     }
+            // };
+
+            // console.log('a : ',a.name,a['age'],a.address.city,a.address.street);
+
+            // const b = Object.assign({},a); // {}에다가 a에 있는 모든 속성들을 붙여넣어서 새로 할당한다(copy)
+
+            // b.name = 'alice'; // 이렇게 해도 a의 name이 alice로 안바뀐다. b는 a를 copy했기 때문
+            // b.address.city = 'Seoul'; // 이건 copy가 안될 것이다. 곧 설명..
+
+            // console.log('after---------');
+            // console.log('a : ',a.name,a['age'],a.address.city,a.address.street);
+            // console.log('b : ',b.name,b['age'],b.address.city,b.address.street); 
+            // /*
+            //     a :  john 20 incheon 10
+            //     b :  alice 20 Seoul 10
+            //     이렇게 나왔어야 하는데
+
+            //     a :  john 20 Seoul 10
+            //     b :  alice 20 Seoul 10
+            //     이렇게 나왔다 (a의 john은 copy때문에 alice로 바뀌지 않았지만, a의 incheon은 ref때문에 Seoul로 바뀜)
+            //     Why??
+            //     --> object를 copy할 때 Object.assign()을 사용하는데,
+            //         name, age와 같은 primitive data type을 가진 속성들은 reference가 되는데
+            //         address와 같은 primitive data type이 아닌 object type과 같은 것들은 copy가 안돼고 reference가 된다.
+                
+            //     ** Shallow Copy **
+            //     그래서 이러한 copy를 Shallow Copy(얕은 복사)라고 한다.
+            //     쉽게 copy할 수 있는 primitive data type들은 copy가 되는데,
+            //     object type과 같이 복사하기 힘든 type은 reference를 하기 때문이다
+
+            // */
+
+            // // Array COPY /////////////////////////////////////////////////////////////
+
+            // const a =[1,2,3]
+            // const b=a; // reference인데, copy를 하고 싶다. 어떻게?
+
+            // b[1]=200; // 이러면 array a의 index 1이 200으로 바뀜
+            // console.log('ref a',a);
+
+            // const c = [...a];  // 이렇게 하면 copy가 된다.
+            // c[1]=300; // 이렇게 해도 array a의 index 1이 300으로 바뀌지 않음.
+            // console.log('copy a',a);
+
+        </script>
+
+    </body>
+
+</html>

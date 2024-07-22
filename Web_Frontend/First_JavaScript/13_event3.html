@@ -1,0 +1,119 @@
+<html>
+
+    <head>
+
+
+    </head>
+
+
+    <body>
+        
+        <div>
+            <div>
+                <input type="checkbox">
+                <label for="">운동</label>
+            </div>
+            <div>
+                <input type="checkbox">
+                <label for="">쇼핑</label>
+            </div>
+        </div>
+
+        <script>
+
+            const inputs = document.querySelectorAll('input'); 
+
+            inputs.forEach( (_input,_idx)=> {
+                _input.addEventListener('click',(event) => {
+
+                    console.log(_idx+' bubble phase : input click event 발생');
+                    // event.stopPropagation();
+                    event.stopImmediatePropagation();
+
+                }); // bubble phase때 수행되는 listener
+                // capture phase에서 수행되는 것인가? null -> false ==> bubble phase
+
+                _input.addEventListener('click',() => {
+
+                    console.log(_idx+' capture pahse : input click event 발생');
+
+                },true); // capture phase에 수행되는 listener
+                // capture phase에서 수행되는 것인가? true ==> capture phase
+
+            });
+
+            // input에 eventlistener 2개를 단 이유 -> 
+            // stopImmediatePropagation()를 공부하기 위해.
+            // stopImmediatePropagation()는 같은 level의 event에도 넘겨주지 않는다.
+            inputs.forEach( (_input,_idx)=> {
+                _input.addEventListener('click',() => {
+                    console.log(_idx+' 두번째 bubble phase : input click event 발생');
+                }); // false가 생략되어 있기 때문에, bubble phase 수행되는 listener
+            });
+
+            const divs = document.querySelectorAll('div');
+            divs.forEach((_div,_idx)=>{
+                _div.addEventListener('click', ()=>{
+                    console.log(_idx +' bubble phase : div에 대한 event 발생');
+                });
+                _div.addEventListener('click', ()=>{
+                    console.log(_idx +' capture phase : div에 대한 event 발생');
+                },true);
+            });
+
+            /*
+                event 발생, capture phase -> target phase -> bubble phase
+                                                        (eventlistener 발생)
+                                        <-              <-
+                ==> 이렇게 event가 구조를 거쳐서 흘러가는 흐름을  propagation이라고 한다. 
+
+                stopPropagation -> 자기와 같은 level에 있는 event listener에게는 전달해준다
+                stopImmediatePropagation -> 자기와 같은 level에 있는 event listener도 stop한다
+
+                ===============================================================
+                stopPropagation
+
+                (기존 결과) -> 
+                0 capture phase : div에 대한 event 발생
+                1 capture phase : div에 대한 event 발생
+                0 capture pahse : input click event 발생
+                0 bubble phase : input click event 발생
+                0 두번째 bubble phase : input click event 발생
+                1 bubble phase : div에 대한 event 발생
+                0 bubble phase : div에 대한 event 발생
+
+                div에 대한 event가 발생했을 때, bubble phase때
+                event.stopPropagation(); 을 추가하면
+                (콘솔창 결과) -> 
+                0 capture phase : div에 대한 event 발생
+                1 capture phase : div에 대한 event 발생
+                0 capture pahse : input click event 발생
+                0 bubble phase : input click event 발생    
+                0 두번째 bubble phase : input click event 발생 (자기와 같은 level에 있는 event listener에게는 전달을 해줬다)
+                (없어짐)
+                (없어짐)
+                ===========================================================
+                stopImmediatePropagation()
+
+                stopPropagation() 결과 ->
+                0 capture phase : div에 대한 event 발생
+                1 capture phase : div에 대한 event 발생
+                0 capture pahse : input click event 발생
+                0 bubble phase : input click event 발생    
+                0 두번째 bubble phase : input click event 발생
+
+                stopImmediatePropagation() 결과 ->
+                0 capture phase : div에 대한 event 발생
+                1 capture phase : div에 대한 event 발생
+                0 capture pahse : input click event 발생
+                0 bubble phase : input click event 발생
+                (같은 level이었던 event 없어짐)
+            
+            */
+
+
+        </script>
+
+    </body>
+
+</html>

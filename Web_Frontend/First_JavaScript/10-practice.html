@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <link rel="stylesheet" href="./10-practice.css">
+    </head>
+
+    <body>
+        <div>
+            <input id="_operator" type="text" readonly>
+            <input id="_show_result" type="text" readonly>
+        </div>
+
+        <div>
+            <button id="_n7">7</button>
+            <button id="_n8">8</button>
+            <button id="_n9">9</button>
+            <button id="_op_plus">+</button>
+        </div>
+        <div>
+            <button id="_n4">4</button>
+            <button id="_n5">5</button>
+            <button id="_n6">6</button>
+            <button id="_op_sub">-</button>
+        </div>
+        <div>
+            <button id="_n1">1</button>
+            <button id="_n2">2</button>
+            <button id="_n3">3</button>
+            <button id="_op_mul">*</button>
+        </div>
+        <div>
+            <button id="_op_clr">Clear</button>
+            <button id="_n0">0</button>
+            <button id="_op_calc">=</button>
+            <button id="_op_div">/</button>
+        </div>
+
+        <script>
+
+            let first_num='';
+            let second_num='';
+            let operator='';
+            let result='';
+
+            const show_operator=document.querySelector('#_operator');
+            const show_result=document.querySelector('#_show_result');
+
+            const numFunc= (num) => {
+
+                return ()=>{
+                    if(operator===''){
+                        console.log('첫번째 숫자 눌렸음');
+                        first_num=first_num+num;
+                        show_result.value=first_num;
+                        // show_result.showContent=first_num; 는 왜 안되지?
+                        
+                    }
+                    else{
+                        console.log('두번째 숫자 눌렸음');
+                        second_num=second_num+num;
+                        show_result.value=second_num;
+                    }
+                };
+
+            };
+
+            const do_operator = (op)=>()=>{
+                switch (op){
+                    case '+':
+                    case '-':
+                    case '*':
+                    case '/':
+                        operator=op;
+                        show_operator.value=op;
+                        break;
+                    case '=':
+                        show_operator.value='=';
+                        console.log('=눌림');
+                        switch(operator){
+                            case '+':
+                                show_result.value=parseInt(first_num)+parseInt(second_num);
+                                break;
+                            case '-':
+                                show_result.value=parseInt(first_num)-parseInt(second_num);
+                                break;
+                            case '/':
+                                show_result.value=parseInt(first_num)/parseInt(second_num);
+                                break;
+                            case '*':
+                                show_result.value=parseInt(first_num)*parseInt(second_num);
+                                break;
+                        }
+                        break;
+
+                    case 'Clear':
+                        operator='';
+                        show_operator.value='';
+                        show_result.value='';
+                        first_num='';
+                        second_num='';
+                        break;
+                        
+                }
+            };
+
+            document.querySelector('#_n1').addEventListener('click',numFunc('1'));
+            document.querySelector('#_n2').addEventListener('click',numFunc('2'));
+            document.querySelector('#_n3').addEventListener('click',numFunc('3'));
+            document.querySelector('#_n4').addEventListener('click',numFunc('4'));
+            document.querySelector('#_n5').addEventListener('click',numFunc('5'));
+            document.querySelector('#_n6').addEventListener('click',numFunc('6'));
+            document.querySelector('#_n7').addEventListener('click',numFunc('7'));
+            document.querySelector('#_n8').addEventListener('click',numFunc('8'));
+            document.querySelector('#_n9').addEventListener('click',numFunc('9'));
+            document.querySelector('#_n0').addEventListener('click',numFunc('0'));
+
+            document.querySelector('#_op_plus').addEventListener('click',do_operator('+'));
+            document.querySelector('#_op_sub').addEventListener('click',do_operator('-'));
+            document.querySelector('#_op_mul').addEventListener('click',do_operator('*'));
+            document.querySelector('#_op_div').addEventListener('click',do_operator('/'));
+            document.querySelector('#_op_clr').addEventListener('click',do_operator('Clear'));
+            document.querySelector('#_op_calc').addEventListener('click',do_operator('='));
+        </script>
+
+    </body>
+
+</html>

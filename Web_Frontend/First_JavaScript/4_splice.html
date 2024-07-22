@@ -1,0 +1,77 @@
+<html>
+    <head>
+    </head>
+    <body>
+        
+        <h1 id="grade">
+        </h1>
+
+        <script>
+
+            let myArray = [1, 2 ,'apple','banana',3.14,true,false,2];
+
+            // //중간에 있는 element 삭제
+            // myArray.splice(1,1) // 1번 인덱스부터 1개를 삭제
+            // myArray.splice(1,2); // 1번 인덱스부터 2개를 삭제. 2랑 'apple'
+            // myArray.splice(1); // 1번 인덱스부터 끝까지 삭제. 1만 남는다
+            // console.log(myArray);
+            ///////////////////////////////////////////////////////////////////////////////////////////////
+
+            // // 삭제 후 추가
+            // myArray.splice(1,1,'orange'); 
+            // //  1번 인덱스에서 1번째꺼를 삭제 후 'orange'를 넣는다
+            // myArray.splice(1,1,'orange','mellon'); 
+            // //  1번 인덱스에서 1번째꺼를 삭제 후 'orange'와 'mellon'를 넣는다
+            // console.log(myArray);
+            
+            ///////////////////////////////////////////////////////////////////////////////////////////////
+            // // 단순 추가
+            // myArray.splice(1,0,'orange'); // 1번 인덱스에서 안지우고 'orange'를 추가한다
+            //                               // 1, 'orange', 2, 'apple' .. 이렇게 된다.
+
+            //     // splice로 unshift와 같은 효과를 낼 수 있다.
+            //     myArray.splice(0,0,'orange');
+            //     myArray.unshift('orange');
+
+            //     // splice로 push와 같은 효과를 낼 수 있다.
+            //     myArray.splice(myArray.length,0,'orange');  // 맨 마지막에 orange 추가
+            //     myArray.push('orange');
+
+            //     // splice로 pop과 같은 효과를 낼 수 있다.
+            //     myArray.splice(myArray.length-1,1);
+            //     myArray.pop();
+            // console.log(myArray);
+
+            ///////////////////////////////////////////////////////////////////////////////////////////////
+            // // includes. 배열 안에 해당하는 값이 있는지 확인. true or false
+            // console.log('Apple이 있냐? '+myArray.includes('apple'));
+            // console.log('orange이 있냐? '+myArray.includes('orange'));
+
+            // if(myArray.includes('apple')===true){
+            //     console.log('apple 있음');
+            // }
+            // else{
+            //     console.lo('apple 없음');
+            // }
+            
+            ///////////////////////////////////////////////////////////////////////////////////////////////
+            // indexOf. 해당하는 값의 index가 어디있는지? 없으면 -1
+            console.log('apple이 있냐?' +myArray.indexOf('apple'));  // 2 
+            console.log('orange이 있냐?' +myArray.indexOf('orange')); // -1
+
+            // indexOf('apple',fromindex)   // fromindex부터 'apple'을 찾아라 // **(fromindex --> 끝)
+            console.log('apple이 있냐?' +myArray.indexOf('apple',0));  // 2 
+            console.log('apple이 있냐?' +myArray.indexOf('apple',2));  // 2 
+            console.log('apple이 있냐?' +myArray.indexOf('apple',3));  // -1
+
+            // lastIndexOf('apple',fromIndex)   // 'apple'이 여러개가 있는데, 마지막 인덱스를 출력하라
+            myArray=[1, 2 ,'apple','banana','apple',3.14,true,false,'apple',2,'apple'];
+            console.log('apple이 있냐?' +myArray.lastIndexOf('apple')); // 10 *** (처음 <-- fromindex) ***
+            console.log('apple이 있냐?' +myArray.lastIndexOf('apple',8)); // 8  
+            console.log('apple이 있냐? '+myArray.lastIndexOf('apple',1)); // -1
+            
+
+        </script>
+
+    </body>
+</html>

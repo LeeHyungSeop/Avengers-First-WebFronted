@@ -1,0 +1,88 @@
+<!-- ***** 13_event2.html 과 함께 볼것 ***** -->
+<html>
+
+    <head>
+
+
+    </head>
+
+
+    <body>
+        
+        <div>
+            <div>
+                <input type="checkbox">
+                <label for="">운동</label>
+            </div>
+            <div>
+                <input type="checkbox">
+                <label for="">쇼핑</label>
+            </div>
+        </div>
+
+        <script>
+
+            // input에 대한 event listener 설정
+            // inputs는 2개의 input이 들어있는 배열이 된다
+            const inputs = document.querySelectorAll('input'); 
+
+            inputs.forEach( (_input,_idx)=> {
+                _input.addEventListener('click',() => {
+                    console.log(_idx+' input click event 발생');
+                });
+            });
+
+            inputs.forEach( (_input,_idx)=> {
+                _input.addEventListener('click',() => {
+                    console.log(_idx+' 두번째 event listener 발생');
+                });
+            });
+
+            // div에 대한 event listener 설정
+            // 큰 div 1개 (0번째 idx), 속해있는 div 2개(1,2번째 idx)
+            const divs = document.querySelectorAll('div');
+            divs.forEach((_div,_idx)=>{
+                _div.addEventListener('click', ()=>{
+                    console.log(_idx +' div에 대한 event 발생');
+                });
+            });
+
+
+
+            /*
+            
+                (실제 콘솔창 출력)
+                1 div에 대한 event 발생
+                0 div에 대한 event 발생
+
+                왜 가장 큰 div인 0이 먼저 출력되지 않는지?
+
+                ==>
+
+                0번째 div -> 1번째 div -> '운동'
+                          -> 2번재 div -> '쇼핑'
+
+                운동을 click !! event가 발생했으면
+
+                1. event가 어디서 발생했는지 쫓아간다. 
+                == event capture phase, '운동'은 target phase
+                -> div 0번째 -> div 1번째 -> input '운동'
+
+                2. target을 잡았으면, 귀환한다.
+                == event bubble phase 
+                (이때 event listener가 발생!! 그래서 div 1이 먼저 출력된다)
+                -> input '운동' -> div 1번째 -> div 0번째 
+                
+                (정리)
+                event 발생, capture phase -> target phase -> bubble phase
+                                                          (eventlistener 발생)
+                                          <-              <-
+                ==> 이렇게 흘러가는 흐름을 propagation이라고 한다. 
+                    나중에 stopPropagation도 배움.
+            */
+
+        </script>
+
+    </body>
+
+</html>

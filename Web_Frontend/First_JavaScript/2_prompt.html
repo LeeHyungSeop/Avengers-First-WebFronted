@@ -1,0 +1,49 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <h1 id="h11">여기입니다.</h1>
+        <h1 id="h12">여기일까?</h1>
+        <h1 id="h13">요기인가?</h1>
+        
+        <hr>
+
+        <script>
+            // const userMsg = prompt("메시지를 입력하시오.");  
+            // console.log('사용자가 입력한 메시지는 ' +userMsg); 
+            // document.querySelector('h1#h12').textContent=userMsg; // h1태그의 id : h12에 출력하겠다.
+            // // document는 전체 코드, 
+            // // querySelector('h1#h12') h1태그의 id가 h12인 곳을 가리킴
+            // // textContent는 여기입니다.를 가리킴. 그곳에 userMsg 변수를 출력한다.
+       
+            // const allh1=document.querySelectorAll('h1'); // h11, h12, h13이 모두 들어있다
+            // allh1.forEach((elem,index)=>{elem.textContent=userMsg;}); 
+            // // allh1에 있는 h11, h12, h13 에 대해서
+            // // elem : h11, index : 0 (한 번 썼으면 다음꺼)
+            // // elem : h12, index : 1 (한 번 썼으면 다음꺼)
+            // // elem : h13, index : 2 
+            // // => 갖고 온다는 의미, 갖고 온 elem로 {무엇을 할건지}
+
+
+            // // 사용자가 입력한 숫자가 짝수?홀수? 판별하여 h11에 출력하기
+            
+            const userMsg=prompt();
+            const userNumber=parseInt(userMsg); // 사용자 입력 문자열 ---> 정수
+            const result=userNumber%2;
+
+            let msg="";
+            if(result==1) // 홀
+            {
+                msg=userMsg+"는 홀수입니다";
+            }
+            else // 짝
+            { 
+                msg=userMsg+"는 짝수입니다";
+            }
+            document.querySelector('h1#h11').textContent=msg;
+
+        </script>
+
+    </body>
+</html>

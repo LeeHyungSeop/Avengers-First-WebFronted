@@ -1,0 +1,83 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        
+        <script>
+            
+            ////////////////////////////////////////////////////////////////////
+            // 1. 배열에 포함된 모든 사과를 제거하시오.
+            // my code
+            let myArray=[1,2,'apple','banana',3.14,'apple',true,false,2,'apple'];
+            console.log('myArray before : '+myArray);
+            while(true)
+            {
+                let value=myArray.indexOf('apple');
+                if(value==-1){
+                    break;
+                }
+                else{
+                    myArray.splice(value,1);
+                }
+            }
+            console.log('myArray after : '+myArray);
+
+            // others code
+            let myArray2=[1,2,'apple','banana',3.14,'apple',true,false,2,'apple'];
+            console.log('With apple : '+myArray2);
+            while(true){
+                let _idx=myArray2.indexOf('apple');
+                if(_idx<0){
+                    break;
+                }
+                myArray2.splice(_idx,1);
+            }
+            console.log('Without apple : '+myArray2);
+
+            ////////////////////////////////////////////////////////////////////
+            // 2. 배열에 포함된 사과는 몇개?
+            // my code
+            const myArray3=['apple',2,'apple','banana',3.14,'apple',true,false,2,'apple'];
+            let cnt=0,value=-1;
+            while(true)
+            {
+                value=myArray3.indexOf('apple',value+1);
+                if(value==-1){
+                    break;
+                }
+                else{
+                    cnt++
+                }
+            }
+            console.log('myArray3에 apple은 ', +cnt, '개 있습니다.');
+            
+            // others code 1
+            const myArray4=['apple',2,'apple','banana',3.14,'apple',true,false,2,'apple'];
+            cnt=0;
+            let _idx=0;
+            while(true){
+                _idx=myArray4.indexOf('apple',_idx);
+                if(_idx<0){
+                    break;
+                }
+                cnt+=1;
+                _idx+=1; // 다음 사과를 찾는 것은, 마지막 찾은 위치 다음이다
+            }
+            console.log('사과 개수는 : '+cnt);
+
+            // other code 2
+            cnt=0;
+            for(let i=0;i<myArray4.length;i++){
+                if(myArray4[i]==='apple'){
+                    cnt+=1;
+                }
+            }
+            console.log('사과 개수는 : '+cnt);
+            ////////////////////////////////////////////////////////////////////
+
+        </script>
+
+
+    </body>
+</html>

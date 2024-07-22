@@ -1,0 +1,49 @@
+<!-- 
+이제까지 html과 JS를 같이 작성했는데
+html과 JS파일을 따로 분리하여 작성할 수 있다
+
+head부분에 
+<script src="js파일명" defer></script>
+이런 코드를 작성하면 된다.
+
+defer란?
+위 설명처럼 HTML 파일이 있고 그것과 연결된 JS 파일이 있다.
+
+Web Server(WS)에 우리가 만든 HTML파일이 있고,
+HTML파일 안에 JS파일이 연결되어 있다.
+
+Web browser(WB)가 요청을 하면 WS에서 파일을 내려주는데,
+<script src="js파일명" defer></script> 
+HTML 파일을 내려주는 과정에서 위의 코드를 만나서
+JS 파일도 동시에 내려주는 것이다.
+
+WB는 내려받은 HTML 파일을 rendering을 하는 것이다. 
+(rendering : HTML파일에 있는 내용을 해석하여 그래픽적으로 만들어내는 과정)
+
+JS 파일은 HTML 파일 중간에 발견되어 다운이 보다 늦게 시작되지만
+JS 파일 사이즈가 작아서 HTML 파일보다 다운이 빨리 되는 경우에
+WB입장에서 JS를 바로 시작한다.
+그렇게 된다면, HTML 파일을 아직 다운을 못받아서 rendering이 안된 상태에서 JS가 수행되면 문제가 생긴다.
+그 문제를 해결하고자 defer를 사용한다.
+
+따라서 defer(연기하다)를 사용하여 
+HTML 파일이 다 로딩이 될 때까지 기다렸다가 JS가 실행되도록 하는 것이다.
+JS파일이 HTML파일 내용과 상관이 없다면 defer 없이 시작해도 된다.
+
+-->
+
+
+<html>
+
+    <head>
+
+        <script src="18_async_await_1.js" defer></script>
+    </head>
+
+    <body>
+        <h1>
+            Hello
+        </h1>
+    </body>
+
+</html>

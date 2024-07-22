@@ -1,0 +1,114 @@
+<html>
+
+    <head>
+
+
+    </head>
+
+    <body>
+        
+        <script>
+            // 객체 지향 프로그래밍 : Object-Oriented Programming -> OOP
+            // OOP의 특징 --> Class 
+
+            // Class : create objects (객체들을 만들어낸다) ////////////////////////////////////////
+
+            /* 이런식으로 코딩하면 비효율적
+            
+                const o = {
+                name : 'tom',
+                age : 20
+                };
+                const j = {
+                    name : 'jane',
+                    age : 21
+                };
+                console.log(o);
+                console.log(j);
+            */
+
+            'use strict'  // 문법을 엄격하게 검사해달라.
+            // a=20; // 'use strict'가 없었다면, a가 선언되지 않았는데도 error가 발생하지 않는다.
+            
+            
+            // class의 이름은 대부분 대문자로 시작한다.
+            class Person {
+                constructor(_name, _age){
+                    this.name = _name;  // _name은 우리가 넣고 싶은 값, this.name은 넣을 공간
+                    this.age = _age; 
+                }
+
+                show_info() {  // class에 function도 만들 수 있다.
+                    console.log(`${this.name} is ${this.age} years old. He lives in ${this.city}`);
+                }
+                
+                is_order_than(_value) {
+                    if(this.age > _value)
+                        return true;
+                    else  
+                        return false;
+                }
+
+                add_city_info(_city){   // 새로운 this.city라는 field가 만들어진다.
+                    this.city=_city;
+                }
+            }
+
+            const p = new Person('jim',20); // Person이라는 class를 이용하여 p라는 new object를 만든다
+            p.add_city_info('Seoul');
+            // const p = {
+            //     name : 'jim',
+            //     age : 20
+            // }
+            const q = new Person('Jane',21);
+            q.add_city_info('Busan');
+
+            console.log(p);  
+            console.log(q);
+
+            p.show_info(); // class에 function을 실행한다.
+            console.log(`${p.name} is older than 19?`);
+            console.log(p.is_order_than(19));
+
+            q.show_info();
+            console.log(`${q.name} is older than 19?`);
+            console.log(q.is_order_than(19));
+
+            //////////////////////////////////////////////////////////////////////////////////////
+            // inheritance (상속)
+            // Student라는 Class를 만들고 싶은데,
+            // 대부분의 field가 Person과 겹친다.
+            // 그래서 Student Class를 Person Class에게 상속받는다
+            // C++ 에서는 multiple inheritance도 가능
+            
+            class Student extends Person{   // Student는 Person이라는 Class에 확장(extends)버전이다.
+
+                constructor(_name,_age,_dream){ 
+                    
+                    super(_name,_age); // name과 age는 이미 Person에 있기 때문에 this가 아니라 super라고 한다
+                    this.dream = _dream;
+                    
+                }
+
+                show_info() {   // Student class의 show_info를 새로 만든 이유 :
+                                // Student class는 Person class와 달리 
+                                // dream이라는 field가 있기 때문에 
+                                // this.dream을 출력하기 위해 새로 만든 것.
+
+                                // 이것을 over riding(올라타는 것) 이라고 한다
+                                // Student class의 show_info가
+                                // Person class의 show_info를 올라탄 것이다. (Over riding)
+                    super.show_info();
+                    console.log(`His dream is ${this.dream}`);
+                }
+            }
+
+            const s = new Student('tom',19,'pilot');
+            s.add_city_info('incheon');  // Person으로부터 상속받았기 때문에 add_city_info() method도 사용가능
+            s.show_info()
+
+        </script>
+
+    </body>
+
+</html>
